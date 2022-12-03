@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Some gold-plated chains would make a nice retirement gift for a very, very good slave.",
+"Researchers in Bermuda believe that they may have finally solved the mystery of Amelia Earhart's disappearance: She was a bad pilot.",
+"In my opinion if you're going to fight the war on terror, a good place to start would be this nation's haunted houses!",
+"I used to think revenge was a dish best served cold, but then I realized it meant 'getting back at somebody'.",
+"I think there's nothing cooler than being a lone wolf. Except at wolf-picnics when you don't have a partner for the wolf-wheelbarrow races. ",
+"A Westchester parking enforcement officer stole $89,000 in quarters. How much laundry does this guy need to do?",
+"I've been jogging for a few months and I recently set a new record for a 5-mile run: 3 miles.",
+"You know my clothes make me look slimmer. But they did not fool that flight of stairs that collapsed under my astonishing new girth.",
+"Why is taking no pleasure in things I used to enjoy a sign of depression? Maybe I'm just finally sick of crayoning!",
+"A hippo's mouth is wide enough to fit a four foot tall child, unfortunately after measuring the hippo's mouth almost all the children were eaten.",
+"The inside of the human body is more of a miracle than you'd first think since everything goes on in there in total darkness.",
+"If you can’t handle me when I’m covered in the blood of a boar I’ve just sacrificed to the Gods, then you don’t deserve me during the bountiful harvest that will result.",
+"They say curiosity killed the cat but I don't think we should rule out that shifty-lookin' kid next door...",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
